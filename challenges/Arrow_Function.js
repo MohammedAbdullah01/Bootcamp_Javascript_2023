@@ -12,9 +12,14 @@
         }
 */
 
-let names = function (...names) {
-    return `String[${names.join("], [")}] => Done !`;
-}
+// Function Regular
+// let names = function (...names) {
+//     return `String[${names.join("], [")}] => Done !`;
+// }
+
+// Function Arrow
+let names = (...names) => `String[${names.join("], [")}] => Done !`;
+
 
 
 console.log(`${names("Khalid", "Noah", "Marim", "Mohamed", "Nabil")}`); // String[Khalid], [Noah], [Marim], [Mohamed], [Nabil] => Done !
@@ -35,6 +40,14 @@ console.log(`${names("Khalid", "Noah", "Marim", "Mohamed", "Nabil")}`); // Strin
 
 
 let myNumbers = [20, 50, 10, 60];
-let cala = (one, two, ...nums) => one * two + one * two;
+
+// Function Arrow
+// let cala = (one, two, ...nums) => one * two + one * two;
+
+// Function Regular
+
+let cala = function (one, two, ...nums) {
+    return one * two + one * two;
+};
 
 console.log(cala(10, myNumbers.length, myNumbers)); // 80 
