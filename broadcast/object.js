@@ -87,3 +87,75 @@ console.log(user3.checkAvailable()); // Not For Free
     Object
     - Create Eith New Keyword new Object
 */
+
+
+let user4 = new Object({
+    age: 20
+});
+console.log(user4);
+
+user4.age = 26; // Updated Property
+
+user4["country"] = "Egypt";
+
+user4.sayHello = function () {
+    return "Hello";
+};
+console.log(user4);
+console.log(user4.age); // 26
+console.log(user4.country); // Egypt
+console.log(user4.sayHello()); // Hello
+
+
+/********************************************* */
+
+/*
+    Object
+    - Create Object With Create Method
+*/
+
+let user5 = new Object({
+    age: 20,
+
+    calcAgeWithDay: function () {
+        return this.age * 365;
+    }
+});
+
+
+let user6 = Object.create(user5);
+user5.age = 50;
+
+console.log(user6.calcAgeWithDay()); // 18250
+
+
+
+
+/********************************************* */
+
+/*
+    Object
+    - Create Object With assign Method
+*/
+
+
+let user7 = new Object({
+    age: 20,
+    pro2: 2,
+
+    calcAgeWithDay: function () {
+        return this.age * 2;
+    }
+});
+
+let targetObject = new Object({
+    age: 10,
+
+    calcAgeWithDay: function () {
+        return this.age * 1;
+    }
+});
+
+let user8 = Object.assign(targetObject, user7, { age: 40 });
+console.log(user8); // {age: 40, pro2: 2, calcAgeWithDay: ƒ}
+console.log(user8.calcAgeWithDay()); // 80
