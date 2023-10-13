@@ -1,5 +1,5 @@
 /*
-DOM
+DOM [Document Object Model]
 - DOM Selectors
 -- Find Element By ID
 -- Find Element By Tag Name
