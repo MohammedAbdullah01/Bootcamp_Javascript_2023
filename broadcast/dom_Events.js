@@ -187,6 +187,50 @@ myD.appendChild(myP);
 
 
 
+/***************************** */
+
+/*
+    DOM [Add Event Listener ]
+    - addEventListener()
+    - Use Withhout On 
+    - Attach Multiple Events
+    - Error Test
+
+    Search
+    - Capture & Bubbling JavaScript
+    - removeEventListener
+*/
+
+let createPListener = document.createElement("p");
+createPListener.className = "oldP";
+let createTextP = document.createTextNode("This About Old P");
+
+createPListener.appendChild(createTextP);
+
+document.body.appendChild(createPListener);
+
+createPListener.onclick = function () {
+    let newP = createPListener.cloneNode(true);
+    newP.className = "Clone";
+    newP.textContent = "This About New P";
+    document.body.appendChild(newP);
+};
+
+document.addEventListener("click", function (e) {
+    if (e.target.className === "Clone") {
+        console.log("iam Clone");
+    }
+})
+
+
+
+
+
+
+
+
+
+
 
 
 

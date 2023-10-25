@@ -218,6 +218,118 @@ BOM [Browser Object Model]
 
 
 
+/******************************/
+
+/*
+BOM [Browser Object Model]
+    - History API
+    -- Properties
+    --- length
+
+    -- Method
+    --- back()
+    --- forward()
+    --- go(Delta) => Position In History
+
+    Search [For Advanced Knowledge]
+    - pushState() + replaceState()
+*/
+
+
+console.log(history);
+
+console.log(history.length); // Count Search History
+
+// console.log(history.back()); // Go back to the page
+
+// console.log(history.forward()); // Return to the forward page
+
+// console.log(history.go(-1)); // Return to the page using Position
+
+
+/******************************/
+
+/*
+BOM [Browser Object Model]
+    - stop()
+    - print()
+    - focus()
+    - scrollTo(x , y || Options )
+    - scroll(x , y || Options )
+    - scrollBy(x , y || Options )
+*/
+
+// let myNewWindow = window.open("Https://google.com","_blanck","width=500,height=200");
+
+// document.body.style.cssText = "width:1200px; height:2000px";
+
+// myNewWindow.print(); // Print the page or part of a page
+
+// myNewWindow.focus() // focus To Element
+
+// window.scrollTo(200 , 200);
+// window.scroll(200, 200);
+
+// window.scrollBy(100, 100);
+
+// Options
+// window.scrollBy({
+//     left: 500,
+//     top: 200,
+//     behavior: "smooth",
+// });
+
+
+
+/******************************/
+
+/*
+BOM [Browser Object Model]
+    - Practice => Scroll To Top 
+    - scrollX [Alias => PageXOffset]
+    - scrollY [Alias => PageYOffset]
+*/
+
+let createBtn = document.createElement("button");
+let textBtnScroll = document.createTextNode("UP");
+
+createBtn.style.cssText = "background-color: red;padding: 6px;border: none;border-radius: 3px;position: fixed;bottom: 20px;right: 20px;display: none;cursor: pointer;";
+
+
+window.onscroll = function () {
+    if (window.scrollY >= 200) {
+        createBtn.style.display = "block"
+    } else {
+
+        createBtn.style.display = "none"
+    }
+}
+
+createBtn.onclick = function () {
+    window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth"
+    })
+}
+
+createBtn.appendChild(textBtnScroll);
+document.body.appendChild(createBtn);
+
+
+/******************************/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

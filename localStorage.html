@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcast JavaScript</title>
+    <style>
+        .listColor {
+            background-color: #ddd;
+            margin: 20px auto;
+            padding: 20px;
+            width: 400px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .listColor li {
+            width: 60px;
+            height: 60px;
+            border: 2px solid transparent;
+            opacity: 0.4;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .listColor li.active,
+        .listColor li:hover {
+            opacity: 1;
+        }
+
+        .listColor li:first-child {
+            background-color: red;
+        }
+
+        .listColor li:nth-child(2) {
+            background-color: green;
+        }
+
+        .listColor li:nth-child(3) {
+            background-color: blue;
+        }
+
+        .listColor li:nth-child(4) {
+            background-color: black;
+        }
+
+        .parentDivColor {
+            background-color: red;
+            width: 600px;
+            height: 300px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Local Storage Example =>
+        Click Li Only Color To 
+        Change Div To This Color li 
+    -->
+    <ul class="listColor">
+        <li class="active" data-color="red"></li>
+        <li data-color="green"></li>
+        <li data-color="blue"></li>
+        <li data-color="black"></li>
+    </ul>
+    <div class="parentDivColor"></div>
+
+    <!-- Session Storage -->
+    <input type="text" class="name" value="" />
+    <script src="broadcast/localStorage.js"></script>
+</body>
+
+</html>
