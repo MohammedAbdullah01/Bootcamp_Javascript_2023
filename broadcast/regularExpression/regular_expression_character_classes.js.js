@@ -42,3 +42,34 @@ let result = m.match(/[\w\^s]/gi);
 
 console.log(result); // MohamedAhmed
 console.log(result.join("")); // MohamedAhmed
+
+/*
+Character Classes
+
+    \b => matches at the beginning or end of a word 
+    \B => matches Not at the beginning or end of a word 
+
+    Test Method
+    pattern.test(inpute);
+*/
+
+let names = "Mohamed 1Spam 2Spam 3Spam Spam4 Spam5 Osama Ahmed Aspamo";
+
+let reg = /\bspam/gi;
+
+console.log(names.match(reg)); // ['Spam', 'Spam']
+
+reg = /spam\b/gi;
+console.log(names.match(reg)); // ['Spam', 'Spam', 'Spam']
+
+reg = /(\bspam|spam\b)/gi;
+console.log(names.match(reg)); // ['Spam', 'Spam', 'Spam', 'Spam', 'Spam']
+
+reg = /(\Bspam|spam\B)/gi;
+console.log(names.match(reg)); // ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'spam']
+
+// Test Method => Return Boolean =>  found = return true - notFound = return false
+console.log(reg.test(names)); // true
+console.log(/(\bspam|spam\b)/gi.test("Mohamed")); // False
+console.log(/(\bspam|spam\b)/gi.test("1spam")); // true
+console.log(/(\bspam|spam\b)/gi.test("spam1")); // true
