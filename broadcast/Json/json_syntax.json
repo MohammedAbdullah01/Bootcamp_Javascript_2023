@@ -1,0 +1,15 @@
+{
+    "String": "Mohamed",
+    "Number": 100,
+    "Address": {
+        "EG": "Cairo",
+        "Pl": "Rafh"
+    },
+    "array": [
+        1,
+        2,
+        3
+    ],
+    "boolean": true,
+    "Null": null
+}
