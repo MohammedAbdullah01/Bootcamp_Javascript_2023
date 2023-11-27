@@ -1,0 +1,48 @@
+[
+  {
+    "Programming": [
+      "javascript",
+      "php",
+      "html",
+      "css",
+      "Python"
+    ]
+  },
+  {
+    "Movies": [
+      "The Godfather",
+      "The Dark Knight",
+      "Angry Men",
+      "Fight Club",
+      "Inception"
+    ]
+  },
+  {
+    "Hollywood_Celebrities": [
+      "Johnny Depp",
+      "Jim Carrey",
+      "Emma Watson",
+      "Daniel Radcliffe",
+      "Leonardo DiCaprio"
+    ]
+  },
+  {
+    "Football_Celebrities": [
+      "Cristiano Ronaldo",
+      "Kylian Mbappe",
+      "Zlatan Ibrahimovic",
+      "David Beckham",
+      "Diego Maradona"
+    ]
+  },
+  {
+    "Countries": [
+      "syria",
+      "Palestine",
+      "Egypt",
+      "Yemen",
+      "Bahrain",
+      "Qater"
+    ]
+  }
+]
