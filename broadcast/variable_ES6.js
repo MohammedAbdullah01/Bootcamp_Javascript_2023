@@ -29,8 +29,8 @@ let userName2 = "Mohamed 2d";
 console.log(userName2); // Error =>  Identifier 'userName2' has already been declared 
 
 // const => Redeclare (No =>  Error) 
-let userName3 = "Mohamed 3";
-let userName3 = "Mohamed 3d";
+const userName3 = "Mohamed 3";
+const userName3 = "Mohamed 3d";
 console.log(userName3); // Error =>  Identifier 'userName2' has already been declared 
 
 

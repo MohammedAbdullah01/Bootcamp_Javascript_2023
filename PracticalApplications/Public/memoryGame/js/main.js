@@ -1,62 +1,3 @@
-let selectSpansInControlButtons = document.querySelectorAll(
-  ".control-buttons div > span"
-);
-
-
-selectSpansInControlButtons.forEach((span) => {
-  span.addEventListener("click", (e) => {
-    if (e.target.classList.contains("easy-level")) {
-      console.log("easy")
-    }
-
-    if (e.target.classList.contains("middle-level")) {
-      console.log("middle")
-    }
-    if (e.target.classList.contains("advenced-level")) {
-      console.log("advenced")
-    }
-  });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Select Variables
 let controlButtons = document.querySelector(".control-buttons"),
   spanControlButtons = document.querySelector(".control-buttons span"),
@@ -68,62 +9,73 @@ let controlButtons = document.querySelector(".control-buttons"),
   selectWorngCount = document.querySelector(".info-container .wrong span");
 // Effect Duration
 (duration = 1000),
-  // // Create Range Of Keys
-  // (orderRange = [...Array(gameBlocks.length).keys()]),
+  // Select Blocks Container
+  (memoryBlocks = document.querySelector(".memory-blocks")),
+  // Create Array From Game Blocks
+  (gameBlocks = Array.from(memoryBlocks.children)),
+  // Create Range Of Keys
+  (orderRange = [...Array(gameBlocks.length).keys()]),
   (divSuccessGame = document.createElement("div")),
   (cleraInt = "");
 
-function finalPageIndex() {
-  fetch("https://jsonplaceholder.typicode.com/photos")
-    .then((response) => response.json())
-    .then((json) => {
-      json.length = 18;
-      let jsonFull = [...json, ...json];
+// Event On Click StartGame
+spanControlButtons.onclick = function () {
+  let yourName = prompt("What`s Your Name ?");
 
-      let orderRanges = [...Array(jsonFull.length).keys()];
-
-      shuffle(orderRanges);
-
-      createElementsPageIndex(jsonFull, orderRanges);
-    });
-}
-
-function createElementsPageIndex(jsonFull, orderRanges) {
-  let memoryBlocks = document.createElement("div");
-  memoryBlocks.className = "memory-blocks";
-  for (let index = 0; index < jsonFull.length; index++) {
-    let gameBlock = document.createElement("div");
-    gameBlock.className = `game-block`;
-    gameBlock.style.order = orderRanges[index];
-    gameBlock.dataset.thumbnailUrl = jsonFull[index].url.slice(-6);
-
-    let frontFace = document.createElement("div");
-    frontFace, (className = "front face");
-    let backFace = document.createElement("div");
-    backFace, (className = "back face");
-    let img = document.createElement("img");
-    img.src = jsonFull[index].thumbnailUrl;
-
-    memoryBlocks.appendChild(gameBlock);
-    gameBlock.appendChild(frontFace);
-    gameBlock.appendChild(backFace);
-    backFace.appendChild(img);
-
-    document.body.appendChild(memoryBlocks);
-
-    // Add Event Click && Function => flip Block
-    addEventListenerClick(gameBlock);
+  if (yourName == null || yourName == "") {
+    // Set Name To Unknown
+    spanInfoContainer.innerHTML = "Unknown";
+  } else {
+    // Set Name To Your Name
+    spanInfoContainer.innerHTML = yourName;
   }
-}
+  // Upadte Counr Down (Timer)
 
-// Add Event Click && Function => flip Block
-function addEventListenerClick(element) {
-  element.addEventListener("click", () => {
-    flipBlock(element);
+  let startingMinutes = 1;
+
+  let time = startingMinutes * 60;
+
+  cleraInt = setInterval(updateCountDown, duration);
+
+  function updateCountDown() {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+    selectCountDown.innerHTML = `${minutes}:${seconds}`;
+    time--;
+
+    timeAlert();
+
+    gameOverTimeIsUp();
+  }
+
+  // Remove Splash Screen
+  controlButtons.remove();
+  addAudio("#game-start").play();
+};
+
+shuffle(orderRange);
+
+// Add Order Css Property To Game Blocks
+gameBlocks.forEach((block, index) => {
+  block.style.order = orderRange[index];
+
+  //Add Click Event
+  block.addEventListener("click", () => {
+    flipBlock(block);
   });
+});
+
+function getClassesHasMatch() {
+  allHasMatch = gameBlocks.filter((hasMatch) =>
+    hasMatch.classList.contains("has-match")
+  );
+  return allHasMatch;
 }
 
 // Shuffle Function To Array
+
 function shuffle(array) {
   let current = array.length,
     temp,
@@ -147,105 +99,6 @@ function shuffle(array) {
   }
   return array;
 }
-
-finalPageIndex();
-
-// Select Blocks Container
-let memoryBlocks = document.querySelector(".memory-blocks");
-console.log(memoryBlocks);
-// Create Array From Game Blocks
-let gameBlocks = Array.from(memoryBlocks.children);
-
-console.log(gameBlocks);
-
-// Upadte Count Down (Timer)
-let startingMinutes = 1;
-
-let time = startingMinutes * 60;
-function updateCountDown() {
-  let minutes = Math.floor(time / 60);
-  let seconds = time % 60;
-
-  seconds = seconds < 10 ? `0${seconds}` : seconds;
-  selectCountDown.innerHTML = `${minutes}:${seconds}`;
-  time--;
-
-  timeAlert();
-
-  gameOverTimeIsUp();
-}
-
-function startGame() {
-  // Event On Click StartGame
-  spanControlButtons.onclick = function () {
-    let yourName = prompt("What`s Your Name ?");
-
-    if (yourName == null || yourName == "") {
-      // Set Name To Unknown
-      spanInfoContainer.innerHTML = "Unknown";
-    } else {
-      // Set Name To Your Name
-      spanInfoContainer.innerHTML = yourName;
-    }
-
-    cleraInt = setInterval(updateCountDown, duration);
-
-    updateCountDown();
-
-    // Remove Splash Screen
-    controlButtons.remove();
-    addAudio("#game-start").play();
-  };
-}
-
-startGame();
-
-// console.log(orderRange);
-
-// shuffle(orderRange);
-
-// Add Order Css Property To Game Blocks
-// gameBlocks.forEach((block, index) => {
-//   block.style.order = orderRange[index];
-
-//   //Add Click Event
-//   block.addEventListener("click", () => {
-//     flipBlock(block);
-//   });
-// });
-
-function getClassesHasMatch() {
-  allHasMatch = gameBlocks.filter((hasMatch) =>
-    hasMatch.classList.contains("has-match")
-  );
-  return allHasMatch;
-}
-
-// Shuffle Function To Array
-
-// function shuffle(array) {
-//   let current = array.length,
-//     temp,
-//     random;
-
-//   while (current > 0) {
-//     // Get Random Number
-//     random = Math.floor(Math.random() * current);
-
-//     // Decrease Length By One
-//     current--;
-
-//     // Save Current Element In Stash
-//     temp = array[current];
-
-//     // Current Element = Random Number
-//     array[current] = array[random];
-
-//     // Random Element = Get Element From Stash
-//     array[random] = temp;
-//   }
-//   return array;
-// }
 
 // Flip Block Function
 function flipBlock(SelectBlock) {
@@ -397,3 +250,4 @@ function setItemLocationStorage(key, value) {
 }
 
 getLocationStorageAndAppendInDiv();
+

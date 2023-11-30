@@ -201,6 +201,6 @@ function endGame(message, className, word = "") {
   document.body.appendChild(div);
 }
 
-function getSoundGame(className) {
-  return document.getElementById(className).play();
+function getSoundGame(id) {
+  return document.getElementById(id).play();
 }
