@@ -75,12 +75,12 @@ body {
 
 
 .memory-blocks .game-block {
-  height: 200px;
+  /* height: 200px; */
   transition: transform .5s;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  flex: 1 0 200px;
+  flex: 0 0 300px;
   margin: 0 10px 20px;
 }
 

@@ -761,3 +761,101 @@ getLocationStorageAndAppendInDiv();
 // }
 
 // getLocationStorageAndAppendInDiv();
+
+
+
+
+
+
+// build New Questions => The Style Json
+// [
+//   {
+//     "id": 34,
+//     "question": "Which command is used to create file archives in Linux?",
+//     "description": null,
+//     "answers": {
+//       "answer_a": "arc",
+//       "answer_b": "zip",
+//       "answer_c": "ps",
+//       "answer_d": "tar",
+//       "answer_e": null,
+//       "answer_f": null,
+//     },
+//     "multiple_correct_answers": "false",
+//     "correct_answers": {
+//       "answer_a_correct": "false",
+//       "answer_b_correct": "false",
+//       "answer_c_correct": "false",
+//       "answer_d_correct": "true",
+//       "answer_e_correct": "false",
+//       "answer_f_correct": "false",
+//     },
+//     "correct_answer": "answer_d",
+//     "explanation": null,
+//     "tip": null,
+//     "tags": [{ name: "Linux" }],
+//     "category": "Linux",
+//     "difficulty": "Easy",
+//   },
+// ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function createThePageQuestionAndAnswer() {
+//   let quizApp = createElement("div");
+//   quizApp.className = "quiz-app";
+//   let quizInfo = createElement("div");
+//   quizInfo.className = "quiz-info";
+//   let category = createElement("div");
+//   category.className = "category";
+//   let count = createElement("div");
+//   count.className = "count";
+//   let quizArea = createElement("div");
+//   quizArea.className = "quiz-area";
+//   let answersArea = createElement("div");
+//   answersArea.className = "answers-area";
+//   let bullets = createElement("div");
+//   bullets.className = "bullets";
+//   let spans = createElement("div");
+//   spans.className = "spans";
+//   let countdown = createElement("div");
+//   countdown.className = "countdown";
+//   let minutes = createElement("span");
+//   minutes.className = "minutes";
+//   let seconds = createElement("span");
+//   seconds.className = "seconds";
+
+//   let results = createElement("div");
+//   results.className = "results";
+//   let prefect = createElement("span");
+//   prefect.className = "prefect";
+
+//   quizApp.appendChild(quizInfo);
+//   quizInfo.appendChild(category);
+//   quizInfo.appendChild(count);
+//   quizApp.appendChild(quizArea);
+//   quizApp.appendChild(answersArea);
+//   answersArea.appendChild(bullets);
+//   bullets.appendChild(spans);
+//   bullets.appendChild(countdown);
+//   countdown.appendChild(minutes);
+//   countdown.appendChild(seconds);
+//   answersArea.appendChild(results);
+//   results.appendChild(prefect);
+
+//   document.body.appendChild(quizApp);
+// }
